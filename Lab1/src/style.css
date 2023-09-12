@@ -16,7 +16,7 @@ body {
     font-family: "Montserrat";
 }
 
-#header>div {
+#header > div {
     width: fit-content;
     height: fit-content;
     margin: 10px auto;

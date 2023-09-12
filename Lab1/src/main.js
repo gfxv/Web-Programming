@@ -4,12 +4,17 @@ let x, y, r
 
 const url = "./server.php?"
 
+window.onload = function() {
+    sendRequest(null, null, null, 1);
+}
+
 document.getElementById("checkButton").onclick = function (e) {
     if (validateX() && validateY() && validateR()) {
 
-        sendRequest(x, y, r)
+        sendRequest(x, y, r, null)
     }
 }
+
 
 function validateX() {
     xInput = document.getElementById("xInput").value.replace(",", ".").trim()
@@ -62,9 +67,11 @@ function hideOutputTable() {
 }
 
 
-function sendRequest(x, y, r) {
+function sendRequest(x, y, r, init) {
     const req = new XMLHttpRequest();
-    const urlParams = new URLSearchParams({ "x": x, "y": y, "r": r });
+    let params = {"x": x, "y": y, "r": r}
+    if (init != null) params.init = init
+    const urlParams = new URLSearchParams(params);
     req.open("GET", url + urlParams.toString(), true);
     req.onreadystatechange = () => {
         if (req.status === 200) {

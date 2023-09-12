@@ -6,9 +6,20 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
     $x = (float) $_GET["x"];
     $y = (float) $_GET["y"];
-        
     $r = (float) $_GET["r"];
+
+    if (isset($_GET["init"])) {
+        send_response("");
+        return;
+    }
+
     $result = "Промах";
+
+    if (!(validate_x($x) and validate_y($y) and validate_r($r))) {
+        echo "Invalid data";
+        return;
+    }
+
     if (check_hit($x, $y, $r)) $result = "Попадание";
 
     $current_time = date("H : i : s");
@@ -61,3 +72,19 @@ function init_table() {
     ");
 }
 
+function validate_x($x): bool {
+    if (!isset($x)) return false;
+    if (!is_float($x)) return false;
+    if ($x < -3 or $x > 5) return false;
+    return true;
+}
+
+function validate_y($y): bool {
+    if (!isset($y)) return false;
+    return in_array($y, array(-3, -2, -1, 0, 1, 2, 3, 4, 5));
+}
+
+function validate_r($r): bool {
+    if (!isset($r)) return false;
+    return in_array($r, array(1, 2, 3, 4, 5));
+}
