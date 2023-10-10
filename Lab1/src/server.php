@@ -53,7 +53,7 @@ function send_response($res) {
     foreach ($_SESSION["table"] as $row) $response .= $row;
     $response .= "</table>";
 
-    header('Access-Control-Allow-Origin: *');
+
     echo $response;
 }
 

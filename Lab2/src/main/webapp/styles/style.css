@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat";
+}
+
+#header {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    background-color: #353b48;
+    color: #f5f6fa;
+    font-family: "Montserrat";
+}
+
+#header > div {
+    width: fit-content;
+    height: fit-content;
+    margin: 10px auto;
+}
+
+#labInfo {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+#headerPlaceholder {
+    height: 80px
+}
+
+#main {
+    width: 55%;
+    margin: 30px auto;
+    padding: 1px;
+    border: 1px solid #487eb0;
+    border-radius: 20px;
+    background-color: #f5f6fa;
+}
+
+#inputWrapper {
+    display: flex;
+}
+
+.mainContainer {
+    width: 50%;
+    text-align: center;
+    /* border: 1px solid black; */
+}
+
+.textInput {
+    width: 200px;
+    height: 20px;
+    border: 1px solid #7f8fa6;
+    border-radius: 10px;
+    outline: none;
+    padding: 5px;
+}
+
+
+#xContainer {
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+}
+
+#xRadiobuttons {
+    width: fit-content;
+    margin: auto;
+}
+
+.xInputLine {
+    width: 180px;
+    display: flex;
+    justify-content: space-between;
+    text-align: justify;
+    margin-bottom: 3px;
+}
+
+#xContainer input[type=radio]:hover {
+    cursor: pointer;
+}
+
+.textInputLabel {
+    margin-right: 5px;
+}
+
+.textInputContainer {
+    margin-top: 20px;
+}
+
+#buttonWrap {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#checkButton {
+    width: 140px;
+    height: 45px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+#checkButton:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+
+#plotContainer svg {
+    font-size: 14px;
+}
+
+#plot {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+}
+
+.shape {
+    fill: #9c88ff;
+    stroke: #9c88ff;
+}
+
+.axis {
+    stroke: rgb(0, 0, 0);
+}
+
+#point {
+    width: 5px;
+    height: 5px;
+    border-radius: 20px;
+    border: 1px solid black;
+    background-color: #f5f6fa;
+}
+
+#outputContainer {
+    width: 100%;
+    margin: 30px auto 0px;
+}
+
+#outputTable {
+    width: 100%;
+    background-color: #718093;
+    color: #f5f6fa;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#outputTable th {
+    height: 35px;
+}
+
+#outputTable td {
+    background-color: #f5f6fa;
+    color: black;
+}
