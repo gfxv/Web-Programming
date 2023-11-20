@@ -1,5 +1,5 @@
 function raiseNotification(message) {
-    alert(message)
+    showModal(message)
 }
 
 function translateCoords(x, y) {
@@ -27,9 +27,7 @@ function denormalizeCoords(x, y, r) {
 function getPointCoords() {
     // АЫАЫАААЫ КОСТЫЛЬ ЫЫААЫАААЫ
     const trs = document.getElementsByTagName("tr")
-    console.log("trs", trs)
     const lastTR = trs[trs.length - 1]
-    console.log("last", lastTR)
     let coords = []
     lastTR.childNodes.forEach(data => {
         if (data.innerText !== undefined && coords.length !== 3) {
@@ -53,15 +51,8 @@ function drawPoint() {
     }
     const point = document.getElementById("point")
 
-    console.log("getPointsCoords()", pointCoords.x, pointCoords.y, pointCoords.r)
-
     let [dx, dy] = denormalizeCoords(pointCoords.x, pointCoords.y, pointCoords.r)
-    console.log("Denormalized", dx, dy)
-    console.log("D-Types", typeof dx, typeof dy)
     let [x, y] = detranslateCoords(dx, dy)
-
-    console.log("Final", x, y)
-    console.log("F-Types", typeof dx, typeof dy)
 
     point.style.display = "block"
     point.style.position = "absolute"
@@ -72,6 +63,15 @@ function drawPoint() {
 
 function clearPoints() {
     document.getElementById("point").style.display = "none"
+}
+
+function showModal(message) {
+    document.getElementById("modal").style.display = "block"
+    document.getElementById("displayMessage").innerText = message
+}
+
+function hideModal() {
+    document.getElementById("modal").style.display = "none"
 }
 
 function sendRequest(x, y, r) {

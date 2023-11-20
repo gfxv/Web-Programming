@@ -9,5 +9,8 @@
         <module name="ServletTest" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Lab2" target="18" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -15,11 +15,11 @@ public class AreaCheckerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ServletContext context = request.getSession().getServletContext();
+        HttpSession session = request.getSession();
         ResultList results;
 
-        if (context.getAttribute("results") == null) results = new ResultList();
-        else results = (ResultList) context.getAttribute("results");
+        if (session.getAttribute("results") == null) results = new ResultList();
+        else results = (ResultList) session.getAttribute("results");
 
         int x = Integer.parseInt(request.getParameter("x"));
         double y = Double.parseDouble(request.getParameter("y"));
@@ -27,7 +27,7 @@ public class AreaCheckerServlet extends HttpServlet {
 
         results.add(checkArea(x, y, r));
 
-        context.setAttribute("results", results);
+        session.setAttribute("results", results);
 
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }

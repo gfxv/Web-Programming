@@ -127,13 +127,11 @@
 
     <div id="outputContainer">
         <%
-
-            ServletContext context = application.getContext(application.getContextPath());
             ResultList resultList;
-            if (context.getAttribute("results") == null) {
+            if (session.getAttribute("results") == null) {
                 resultList = new ResultList();
             } else {
-                resultList = (ResultList) context.getAttribute("results");
+                resultList = (ResultList) session.getAttribute("results");
             }
         %>
 
@@ -160,6 +158,13 @@
         </table>
 
     </div>
+
+    <div id="modal">
+        <h3>AHTUNG AHTNUG!</h3>
+        <p id="displayMessage"></p>
+        <button id="modalButton">Sorry, I'm stupid</button>
+    </div>
+
 </div>
 
 <script src="scripts/utils.js"></script>

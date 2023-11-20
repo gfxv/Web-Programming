@@ -8,8 +8,7 @@ let pt = svg.createSVGPoint()
 window.onload = function () {
     clearPoints();
     drawPoint();
-
-
+    hideModal();
 }
 
 document.getElementById("checkButton").onclick = function () {
@@ -17,6 +16,8 @@ document.getElementById("checkButton").onclick = function () {
         sendRequest(x, y, r)
     }
 }
+
+document.getElementById("modalButton").onclick = hideModal
 
 svg.onclick = function (event) {
     pt.x = event.clientX;
