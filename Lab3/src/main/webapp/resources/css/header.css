@@ -1,0 +1,23 @@
+#header {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  background-color: #353b48;
+  color: #f5f6fa;
+  font-family: "Montserrat";
+}
+
+#header > div {
+  width: fit-content;
+  height: fit-content;
+  margin: 10px auto;
+}
+
+#labInfo {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+#headerPlaceholder {
+  height: 80px
+}

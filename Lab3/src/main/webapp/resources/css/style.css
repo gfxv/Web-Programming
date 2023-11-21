@@ -1,0 +1,113 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+#main {
+  display: flex;
+  width: 55%;
+  margin: 30px auto;
+  padding: 1px;
+  border: 1px solid #487eb0;
+  border-radius: 20px;
+  background-color: #f5f6fa;
+}
+
+#inputWrapper {
+  text-align: center;
+  width: 50%;
+}
+
+#plot-wrapper {
+  width: 50%;
+}
+
+#buttonWrap {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+#j_idt9\:checkButton {
+  width: 140px;
+  height: 45px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+#j_idt9\:checkButton:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.coords-input {
+  width: 200px;
+  height: 25px;
+  margin: auto;
+}
+
+#j_idt9\:x_input {
+  width: 200px;
+  height: 25px;
+  margin: auto;
+}
+
+#outputContainer {
+  width: 55%;
+  margin: 30px auto 0px;
+}
+
+#outputTable {
+  width: 100%;
+  background-color: #718093;
+  color: #f5f6fa;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#outputTable th {
+  height: 35px;
+}
+
+#outputTable td {
+  background-color: #f5f6fa;
+  color: black;
+}
+
+#modal {
+  position: fixed;
+  width: 300px;
+  height: 150px;
+  top: 250px;
+  left: 50%;
+  transform: translate(-50%);
+
+  border: 2px solid red;
+  border-radius: 20px;
+  background-color: #f5f6fa;
+
+  text-align: center;
+}
+
+.hide-modal {
+  display: none;
+}
+

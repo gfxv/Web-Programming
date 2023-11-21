@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<!--<f:view>-->
+<!--    <h:outputLabel value="Hello, world"/>-->
+<!--</f:view>-->
+
+<h:head>
+    <title>Lab 3</title>
+    <h:outputStylesheet library="css" name="header.css"/>
+    <h:outputStylesheet library="css" name="index.css"/>
+</h:head>
+
+<h:body>
+
+    <div id="header">
+        <div id="labInfo">
+            Лабораторная работа №3, Вариант 1807
+        </div>
+        <div id="studentInfo">
+            Выполнил: Рудкевич Илья Александрович, P3206
+        </div>
+    </div>
+
+    <div id="headerPlaceholder"></div>
+
+    <div id="main">
+
+        <div id="clock-container">
+            <canvas id="clock" width="400" height="400"></canvas>
+        </div>
+
+        <div id="to-main-button-container">
+            <h:button id="to-main-button" value="На главную" outcome="redirect-to-main"></h:button>
+        </div>
+
+    </div>
+
+    <h:outputScript library="js" name="clock.js"></h:outputScript>
+    <script src="resources/js/clock.js" jsfc="h:outputScript" type="text/javascript"></script>
+</h:body>
+</html>

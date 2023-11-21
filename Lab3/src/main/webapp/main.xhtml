@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Lab 3</title>
+    <h:outputStylesheet library="css" name="header.css"/>
+    <link rel="stylesheet" href="resources/css/header.css"/>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <link rel="stylesheet" href="resources/css/style.css"/>
+</h:head>
+
+<body>
+
+    <div id="header">
+        <div id="labInfo">
+            Лабораторная работа №3, Вариант 1807
+        </div>
+        <div id="studentInfo">
+            Выполнил: Рудкевич Илья Александрович, P3206
+        </div>
+    </div>
+
+    <div id="headerPlaceholder"></div>
+
+    <div id="main">
+        <div id="inputWrapper">
+            <h:form>
+
+                <h:outputLabel for="x" value="X"/>
+                <br/>
+                <p:spinner id="x" value="#{beanOfCum.x}" stepFactor="1" min="-5" max="5" styleClass="coords-input">
+                </p:spinner>
+
+                <br/>
+
+                <h:outputLabel for="y" value="Y (-5; 5)"/>
+                <br/>
+                <h:inputText id="y" styleClass="coords-input" required="true" maxlength="7"
+                             requiredMessage="Value X is required" validatorMessage="The value must be from -5 to 5"
+                            value="#{beanOfCum.y}">
+                    <f:converter converterId="jakarta.faces.Double"/>
+                    <f:validateDoubleRange minimum="-5" maximum="5"/>
+                </h:inputText>
+
+                <br/>
+
+                <h:outputLabel for="r" value="Range R"/><br/>
+                <h:panelGrid styleClass="coords-input" columns="1" style="margin-bottom: 10px" id="r">
+                    <p:inputText styleClass="coords-input" id="decimal" value="#{beanOfCum.r}"/>
+                    <p:slider for="decimal" minValue="2" maxValue="5" step="0.25" rangыe="false"/>
+                </h:panelGrid>
+
+                <div id="#buttonWrap">
+                    <h:commandButton id="checkButton" value="Проверить" action="#{beanOfCum.checkPoint()}"/>
+                </div>
+
+            </h:form>
+        </div>
+
+        <h:form id="hidden-form">
+            <h:inputHidden value="#{beanOfCum.x}" id = "hidden-x">
+                <f:converter converterId="jakarta.faces.Double"/>
+            </h:inputHidden>
+            <h:inputHidden value="#{beanOfCum.y}" id = "hidden-y">
+                <f:converter converterId="jakarta.faces.Double"/>
+            </h:inputHidden>
+            <h:inputHidden value="#{beanOfCum.r}" id = "hidden-r">
+                <f:converter converterId="jakarta.faces.Double"/>
+            </h:inputHidden>
+            <h:commandButton id="hidden-send" action="#{beanOfCum.checkPoint()}" style="opacity: 0"/>
+        </h:form>
+
+        <div id="plot-wrapper">
+            <div id="plot-container">
+                <canvas id="plot" width="300" height="300"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div id="outputContainer">
+        <h:dataTable rowClasses="output-data" class="result-table" id="outputTable" var="point" value="#{beanOfCum.points}">
+            <h:column>
+                <f:facet name="header">X</f:facet>
+                #{point.x}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Y</f:facet>
+                #{point.y}
+            </h:column>
+            <h:column>
+                <f:facet name="header">R</f:facet>
+                #{point.r}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Результат</f:facet>
+                #{point.result ? "Попадание" : "Промах"}
+            </h:column>
+        </h:dataTable>
+    </div>
+
+    <div id="modal" class="hide-modal">
+        <h3>AHTUNG AHTNUG!</h3>
+        <p id="displayMessage"></p>
+        <button onclick="hideModal()" id="modalButton">Sorry, I'm stupid</button>
+    </div>
+
+</body>
+
+<script src="resources/js/plot.js"></script>
+<script src="resources/js/utils.js"></script>
+
+</html>
