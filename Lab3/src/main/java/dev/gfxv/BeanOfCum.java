@@ -1,10 +1,13 @@
+package dev.gfxv;
+
+import dev.gfxv.entities.Point;
+import dev.gfxv.mbeans.BeanOfCumMXBean;
 import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
 
 import jakarta.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import lombok.*;
 
@@ -12,13 +15,12 @@ import lombok.*;
 @Setter
 @Named
 @SessionScoped
-public class BeanOfCum implements Serializable {
+public class BeanOfCum  implements Serializable, BeanOfCumMXBean {
     private int x;
     private double y;
     private double r;
 
-    Database database = new Database();
-
+    @Override
     public void checkPoint() {
 
         Point testPoint = new Point(x, y, r);
@@ -28,6 +30,7 @@ public class BeanOfCum implements Serializable {
         testPoint.setSessionId(sessionId);
 
         try {
+            Database database = new Database();
             database.addNewPoint(testPoint);
         } catch (SQLException e) {
             System.out.println("[!] Error occurred while adding new point to database.");
@@ -35,18 +38,5 @@ public class BeanOfCum implements Serializable {
         }
     }
 
-    public ArrayList<Point> getPoints() {
-        String sessionId = FacesContext.getCurrentInstance().getExternalContext().getSessionId(true);
-
-        ArrayList<Point> points = new ArrayList<>();
-        try {
-            points = database.getPointsBySID(sessionId);
-        } catch (SQLException e) {
-            System.out.println("[!] Error occurred while getting points from database");
-            System.out.println(e.getMessage());
-        }
-
-        return points;
-    }
 
 }

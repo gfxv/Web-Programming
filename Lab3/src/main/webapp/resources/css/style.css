@@ -18,6 +18,11 @@ body {
   background-color: #f5f6fa;
 }
 
+#stat-table {
+  width: 100%;
+  margin: auto;
+}
+
 #inputWrapper {
   text-align: center;
   width: 50%;
@@ -45,7 +50,7 @@ body {
   background-color: #fff;
   border: none;
   border-radius: 45px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease 0s;
   cursor: pointer;
   outline: none;
@@ -53,7 +58,7 @@ body {
 
 #j_idt9\:checkButton:hover {
   background-color: #2EE59D;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  box-shadow: 0 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
   transform: translateY(-3px);
 }
@@ -72,7 +77,7 @@ body {
 
 #outputContainer {
   width: 55%;
-  margin: 30px auto 0px;
+  margin: 30px auto 0;
 }
 
 #outputTable {

@@ -59,8 +59,24 @@
                 <div id="#buttonWrap">
                     <h:commandButton id="checkButton" value="Проверить" action="#{beanOfCum.checkPoint()}"/>
                 </div>
-
             </h:form>
+
+            <!-- тут такие костыли... -->
+            <h:dataTable rowClasses="stat-data" id="stat-table" var="stat" value="#{statBean.results}">
+                <h:column>
+                    <f:facet name="header">Всего</f:facet>
+                    #{stat.total}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Попаданий</f:facet>
+                    #{stat.hits}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Промахов</f:facet>
+                    #{stat.misses}
+                </h:column>
+            </h:dataTable>
+            <h:outputText id="field" value="Area: #{statBean.area}"/>
         </div>
 
         <h:form id="hidden-form">
@@ -84,7 +100,8 @@
     </div>
 
     <div id="outputContainer">
-        <h:dataTable rowClasses="output-data" class="result-table" id="outputTable" var="point" value="#{beanOfCum.points}">
+
+        <h:dataTable rowClasses="output-data" class="result-table" id="outputTable" var="point" value="#{tableBean.points}">
             <h:column>
                 <f:facet name="header">X</f:facet>
                 #{point.x}

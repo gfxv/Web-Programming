@@ -1,3 +1,5 @@
+package dev.gfxv.entities;
+
 import java.io.Serializable;
 import lombok.*;
 
@@ -7,6 +9,7 @@ public class Point implements Serializable {
     private int x;
     private double y;
     private double r;
+    @Setter
     private boolean result;
     private String sessionId;
 
@@ -20,9 +23,12 @@ public class Point implements Serializable {
         return result;
     }
 
-    public void setResult(boolean result) {
-        this.result = result;
-    }
+
+
+    //    public void setResult(boolean result) {
+//        this.result = result;
+//    }
+//
 
     public void cal() {
         if (validateX() && validateY() && validateR()) {

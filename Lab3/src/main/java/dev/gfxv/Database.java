@@ -1,3 +1,7 @@
+package dev.gfxv;
+
+import dev.gfxv.entities.Point;
+
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -62,7 +66,6 @@ public class Database {
             double y = rs.getDouble(2);
             double r = rs.getDouble(3);
             boolean hit = rs.getBoolean(4);
-
 
             Point point = new Point(x, y, r);
             point.setResult(hit);
